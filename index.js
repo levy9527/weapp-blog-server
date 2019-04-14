@@ -8,6 +8,13 @@ const Koa = require('koa');
 const app = new Koa();
 const port = process.env.PORT || 3000
 
+const https = require('https')
+const fs = require('fs')
+const sslOptions = {
+  key: fs.readFileSync('./ssl/server.key'),
+  cert: fs.readFileSync('./ssl/server.pem')
+}
+
 const axios = require('axios')
 const axiosConfig = {
   method: 'POST',
@@ -47,6 +54,7 @@ app.use(async ctx => {
 
 });
 
-app.listen(port, () => {
-  console.log('server start up at http://localhost:' + port)
-});
+https.createServer(sslOptions, app.callback()).listen(port, () => {
+  console.log('server start up at https://localhost:' + port)
+})
+

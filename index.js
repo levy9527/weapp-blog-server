@@ -1,4 +1,8 @@
 require('dotenv').config()
+if (!process.env.GITHUB_TOKEN) {
+  console.error('请设置环境变量GITHUB_TOKEN')
+  return
+}
 
 const Koa = require('koa');
 const app = new Koa();

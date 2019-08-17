@@ -45,7 +45,7 @@ app.use(async ctx => {
   if (ctx.path == '/issue_detail') {
     let resp = await axios(Object.assign({}, axiosConfig, {
 			data: {
-				"query": "query {\n repository(owner:\"levy9527\", name:\"blog\") {issue(number: " + ctx.query.number + ") {\n bodyHTML \n}\n}\n}"
+				"query": "query {\n repository(owner:\"levy9527\", name:\"blog\") {issue(number: " + ctx.query.number + ") {\n bodyHTML, title \n}\n}\n}"
 			},
 		}))
 

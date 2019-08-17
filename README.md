@@ -3,3 +3,5 @@
 
 ## Links
 - [weapp-blog](https://github.com/levy9527/weapp-blog)
+- [github graphql api](https://developer.github.com/v4/explorer/)
+- [enable https](https://github.com/levy9527/blog/issues/5)
